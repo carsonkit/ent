@@ -33,7 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 		$dbh = db_conn();
 		try {
 			/* (1) 実行するSQL文を用意する            */
-			$sql = "SELECT * FROM members WHERE email = :email";
+			$sql = "SELECT id FROM members WHERE email = :email";
 			$stmt = $dbh->prepare($sql);
 			$stmt->bindValue(':email', $email, PDO::PARAM_STR);
 			$stmt->execute();
